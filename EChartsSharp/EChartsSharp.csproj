@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <LangVersion>preview</LangVersion>
+    <Version>0.0.1-alpha</Version>
+    <RootNamespace>EChartsSharp</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Authors>zmjack</Authors>
+    <Company>nstandard.net</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>ECharts option generator.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/zmjack/EChartsSharp</RepositoryUrl>
+    <PackageProjectUrl>nstandard.net</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <Copyright>Copyright © nstandard.net 2024</Copyright>
+    <PackageId>EChartsSharp</PackageId>
+    <PackageTags>ECharts</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NStandard" Version="0.70.0" />
+  </ItemGroup>
+
+</Project>
