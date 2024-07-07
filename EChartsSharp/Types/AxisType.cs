@@ -1,4 +1,5 @@
 ﻿using NStandard.Text.Json;
+using System.Text.Json;
 
 namespace EChartsSharp.Types;
 
@@ -13,7 +14,7 @@ public enum AxisType
 [JsonValue<AxisTypeValue>]
 public struct AxisTypeValue(AxisType option) : IJsonValue
 {
-    public AxisType Value { get; } = option;
+    public AxisType Value { get; set; } = option;
 
     object? IJsonValue.Value
     {
@@ -25,6 +26,21 @@ public struct AxisTypeValue(AxisType option) : IJsonValue
                 AxisType.Category => "category",
                 AxisType.Time => "time",
                 AxisType.Log => "log",
+                _ => throw new NotImplementedException(),
+            };
+        }
+    }
+    JsonElement IJsonValue.RawValue
+    {
+        set
+        {
+            var _value = value.Deserialize<string>();
+            Value = _value switch
+            {
+                "value" => AxisType.Value,
+                "category" => AxisType.Category,
+                "time" => AxisType.Time,
+                "log" => AxisType.Log,
                 _ => throw new NotImplementedException(),
             };
         }

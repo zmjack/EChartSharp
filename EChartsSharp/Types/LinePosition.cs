@@ -1,4 +1,5 @@
 ﻿using NStandard.Text.Json;
+using System.Text.Json;
 
 namespace EChartsSharp.Types;
 
@@ -18,7 +19,6 @@ public enum LinePosition
 [JsonValue<LinePositionValue>]
 public struct LinePositionValue(LinePosition option) : IJsonValue
 {
-
     public LinePosition Value { get; } = option;
 
     object? IJsonValue.Value
@@ -40,6 +40,7 @@ public struct LinePositionValue(LinePosition option) : IJsonValue
             };
         }
     }
+    JsonElement IJsonValue.RawValue { set => throw new NotImplementedException(); }
 
     public static implicit operator LinePositionValue(LinePosition value) => new(value);
 }

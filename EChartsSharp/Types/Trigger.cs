@@ -1,4 +1,5 @@
 ﻿using NStandard.Text.Json;
+using System.Text.Json;
 namespace EChartsSharp.Types;
 
 public enum Trigger
@@ -26,6 +27,7 @@ public struct TriggerValue(Trigger option) : IJsonValue
             };
         }
     }
+    JsonElement IJsonValue.RawValue { set => throw new NotImplementedException(); }
 
     public static implicit operator TriggerValue(Trigger value) => new(value);
 }

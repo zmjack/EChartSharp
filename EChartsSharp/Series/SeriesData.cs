@@ -1,4 +1,5 @@
 ﻿using NStandard.Text.Json;
+using System.Text.Json;
 
 namespace EChartsSharp.Series;
 
@@ -60,6 +61,13 @@ public struct SeriesDataValue : IJsonValue
                 UnderlyingType.Elements => Elements,
                 _ => throw new NotImplementedException(),
             };
+        }
+    }
+    JsonElement IJsonValue.RawValue
+    {
+        set
+        {
+            throw new NotImplementedException();
         }
     }
 }
