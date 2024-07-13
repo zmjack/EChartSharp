@@ -1,7 +1,7 @@
 ﻿using NStandard.Text.Json;
 using System.Text.Json;
 
-namespace EChartsSharp.Types;
+namespace EChartSharp.Types;
 
 public enum Position
 {

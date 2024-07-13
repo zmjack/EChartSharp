@@ -1,12 +1,17 @@
-﻿using EChartsSharp.Interfaces;
-using EChartsSharp.Types;
+﻿using EChartSharp.Interfaces;
+using EChartSharp.Types;
 using NStandard.Drawing;
 
-namespace EChartsSharp.Series;
+namespace EChartSharp.Series;
 
-public class LineLabel : ILabel
+public class SeriesLabel : ILabel
 {
-    public LinePositionValue? Position { get; set; }
+    public PositionValue? Position { get; set; }
+    public string? Rotate { get; set; }
+    public string? Offset { get; set; }
+    public string? MinMargin { get; set; }
+    public string? Align { get; set; }
+    public string? VerticalAlign { get; set; }
 
     public bool? Show { get; set; }
     public object? Distance { get; set; }

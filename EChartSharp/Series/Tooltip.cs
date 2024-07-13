@@ -1,6 +1,6 @@
-﻿using EChartsSharp.Types;
+﻿using EChartSharp.Types;
 
-namespace EChartsSharp.Series;
+namespace EChartSharp.Series;
 
 public partial class Tooltip
 {

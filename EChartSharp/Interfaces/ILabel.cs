@@ -1,7 +1,12 @@
-﻿using NStandard.Drawing;
+﻿using EChartSharp.Series;
+using NStandard.Drawing;
+using System.Text.Json.Serialization;
 
-namespace EChartsSharp.Interfaces;
+namespace EChartSharp.Interfaces;
 
+[JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor)]
+[JsonDerivedType(typeof(LineLabel), nameof(LineLabel))]
+[JsonDerivedType(typeof(SeriesLabel), nameof(SeriesLabel))]
 public interface ILabel
 {
     bool? Show { get; set; }

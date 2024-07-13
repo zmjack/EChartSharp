@@ -1,7 +1,7 @@
 ﻿using NStandard.Text.Json;
 using System.Text.Json;
 
-namespace EChartsSharp.Series;
+namespace EChartSharp.Series;
 
 public struct SeriesDataElement
 {

@@ -6,19 +6,19 @@
     <Nullable>enable</Nullable>
 
     <LangVersion>preview</LangVersion>
-    <Version>0.0.1-alpha2</Version>
-    <RootNamespace>EChartsSharp</RootNamespace>
+    <Version>0.0.2-alpha2</Version>
+    <RootNamespace>EChartSharp</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Authors>zmjack</Authors>
     <Company>nstandard.net</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>ECharts option generator.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/zmjack/EChartsSharp</RepositoryUrl>
+    <RepositoryUrl>https://github.com/zmjack/EChartSharp</RepositoryUrl>
     <PackageProjectUrl>nstandard.net</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <Copyright>Copyright © nstandard.net 2024</Copyright>
-    <PackageId>EChartsSharp</PackageId>
+    <PackageId>EChartSharp</PackageId>
     <PackageTags>ECharts</PackageTags>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NStandard" Version="0.73.0" />
+    <PackageReference Include="NStandard" Version="0.75.1" />
   </ItemGroup>
 
 </Project>

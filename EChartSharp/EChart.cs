@@ -1,7 +1,7 @@
-﻿using EChartsSharp.Interfaces;
-using EChartsSharp.Series;
+﻿using EChartSharp.Interfaces;
+using EChartSharp.Series;
 
-namespace EChartsSharp;
+namespace EChartSharp;
 
 public partial class EChart
 {

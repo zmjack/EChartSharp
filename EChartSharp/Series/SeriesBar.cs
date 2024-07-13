@@ -1,7 +1,7 @@
-﻿using EChartsSharp.Interfaces;
+﻿using EChartSharp.Interfaces;
 using NStandard.Drawing;
 
-namespace EChartsSharp.Series;
+namespace EChartSharp.Series;
 
 public partial class SeriesBar : ISeries
 {
