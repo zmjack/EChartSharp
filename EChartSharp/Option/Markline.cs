@@ -1,4 +1,6 @@
-﻿namespace EChartSharp.Series;
+﻿using EChartSharp.Option;
+
+namespace EChartSharp.Series;
 
 public partial class MarkLine
 {

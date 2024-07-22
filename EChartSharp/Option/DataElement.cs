@@ -1,9 +1,9 @@
 ﻿using NStandard.Text.Json;
 using System.Text.Json;
 
-namespace EChartSharp.Series;
+namespace EChartSharp.Option;
 
-public struct SeriesDataElement
+public struct DataElement
 {
     public string? Name { get; set; }
     public double? Value { get; set; }
@@ -30,7 +30,7 @@ public struct SeriesDataValue : IJsonValue
     public UnderlyingType Type { get; }
     public double[] Array { get; }
     public double[,] Array2D { get; }
-    public SeriesDataElement[] Elements { get; }
+    public DataElement[] Elements { get; }
 
     public SeriesDataValue(double[] value)
     {
@@ -44,7 +44,7 @@ public struct SeriesDataValue : IJsonValue
         Array2D = value;
     }
 
-    public SeriesDataValue(SeriesDataElement[] value)
+    public SeriesDataValue(DataElement[] value)
     {
         Type = UnderlyingType.Elements;
         Elements = value;

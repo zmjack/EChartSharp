@@ -1,20 +1,13 @@
-﻿using NStandard.Text.Json;
+﻿using EChartSharp.Option;
+using NStandard.Text.Json;
 using System.Text.Json;
 
 namespace EChartSharp.Types;
 
-public enum AxisType
-{
-    Value,
-    Category,
-    Time,
-    Log,
-}
-
 [JsonValue<AxisTypeValue>]
-public struct AxisTypeValue(AxisType option) : IJsonValue
+public struct AxisTypeValue(AxisType value) : IJsonValue
 {
-    public AxisType Value { get; set; } = option;
+    public AxisType Value { get; set; } = value;
 
     object? IJsonValue.Value
     {

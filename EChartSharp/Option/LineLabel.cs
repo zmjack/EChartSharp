@@ -1,8 +1,7 @@
-﻿using EChartSharp.Interfaces;
-using EChartSharp.Types;
+﻿using EChartSharp.Types;
 using NStandard.Drawing;
 
-namespace EChartSharp.Series;
+namespace EChartSharp.Option;
 
 public class LineLabel : ILabel
 {

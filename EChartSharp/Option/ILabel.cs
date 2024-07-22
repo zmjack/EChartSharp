@@ -1,8 +1,7 @@
-﻿using EChartSharp.Series;
-using NStandard.Drawing;
+﻿using NStandard.Drawing;
 using System.Text.Json.Serialization;
 
-namespace EChartSharp.Interfaces;
+namespace EChartSharp.Option;
 
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor)]
 [JsonDerivedType(typeof(LineLabel), nameof(LineLabel))]

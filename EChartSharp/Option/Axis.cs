@@ -1,6 +1,6 @@
 ﻿using EChartSharp.Types;
 
-namespace EChartSharp.Series;
+namespace EChartSharp.Option;
 
 public class Axis
 {

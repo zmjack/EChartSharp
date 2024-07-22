@@ -1,4 +1,4 @@
-﻿using EChartSharp.Interfaces;
+﻿using EChartSharp.Option;
 using NStandard.Drawing;
 
 namespace EChartSharp.Series;

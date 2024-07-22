@@ -1,4 +1,4 @@
-﻿namespace EChartSharp.Series;
+﻿namespace EChartSharp.Option;
 
 public class Title
 {

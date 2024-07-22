@@ -3,9 +3,9 @@ using NStandard.Drawing;
 
 namespace EChartSharp.Series;
 
-public partial class SeriesBar : ISeries
+public partial class SeriesPie : ISeries
 {
-    public string Type => "bar";
+    public string Type => "pie";
 
     public string? Name { get; set; }
     public SeriesDataValue? Data { get; set; }
@@ -16,4 +16,5 @@ public partial class SeriesBar : ISeries
     public SeriesLabel? Label { get; set; }
     public ItemStyle? ItemStyle { get; set; }
     public MarkLine? MarkLine { get; set; }
+
 }

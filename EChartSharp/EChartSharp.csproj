@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <LangVersion>preview</LangVersion>
-    <Version>0.0.2-alpha2</Version>
+    <Version>0.0.3-alpha7</Version>
     <RootNamespace>EChartSharp</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Authors>zmjack</Authors>

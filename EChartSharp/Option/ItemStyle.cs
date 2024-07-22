@@ -1,6 +1,6 @@
 ﻿using NStandard.Drawing;
 
-namespace EChartSharp.Series;
+namespace EChartSharp.Option;
 
 public class ItemStyle
 {
