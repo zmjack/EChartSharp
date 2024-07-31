@@ -32,6 +32,12 @@ public struct SeriesDataValue : IJsonValue
     public double[,] Array2D { get; }
     public DataElement[] Elements { get; }
 
+    public SeriesDataValue(IEnumerable<double> value)
+    {
+        Type = UnderlyingType.Array;
+        Array = value.ToArray();
+    }
+
     public SeriesDataValue(double[] value)
     {
         Type = UnderlyingType.Array;

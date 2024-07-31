@@ -1,5 +1,9 @@
 ﻿using EChartSharp.Option;
 using EChartSharp.Series;
+using NStandard.Data;
+using System.Data.Common;
+using System.Numerics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EChartSharp;
 
@@ -13,42 +17,107 @@ public class EChart
     public Axis? YAxis { get; set; }
     public ISeries[]? Series { get; set; }
 
-    public EChart Line(Orient orient, DataFrame frame)
+    public EChart SetAxis(string[] classes, Orient orient = Orient.Horizontal)
     {
-        frame.ApplyAxis(this, orient);
+        if (orient == Orient.Horizontal)
+        {
+            XAxis = new()
+            {
+                Type = AxisType.Category,
+                Data = classes,
+            };
+            YAxis = new()
+            {
+                Type = AxisType.Value,
+            };
+        }
+        else if (orient == Orient.Vertical)
+        {
+            XAxis = new()
+            {
+                Type = AxisType.Value,
+            };
+            YAxis = new()
+            {
+                Type = AxisType.Category,
+                Data = classes,
+            };
+        }
+        else throw new NotImplementedException();
+
+        return this;
+    }
+
+    private Axis GetClassAxis()
+    {
+        if (XAxis?.Type?.Value == AxisType.Category) return XAxis;
+        if (YAxis?.Type?.Value == AxisType.Category) return YAxis;
+        throw new InvalidOperationException("Need to set the axis first.");
+    }
+
+    private void CheckAxis(DataFrame<double> frame)
+    {
+        var categoryAxis = GetClassAxis();
+        if (!Enumerable.SequenceEqual(categoryAxis.Data ?? [], frame.Index)) throw new InvalidOperationException("The values of index must be same.");
+    }
+
+    public EChart Line(DataFrame<double> frame, bool stacked = false)
+    {
+        CheckAxis(frame);
+
+        var stack = stacked ? Guid.NewGuid().ToString() : null;
         Series =
         [
-            new SeriesLine
+            ..
+            Series ?? [],
+
+            ..
+            from values in frame.ColumnValues()
+            select new SeriesLine
             {
-                Data = new(frame.Data)
+                Stack = stack,
+                Data = new(values)
             }
         ];
         return this;
     }
 
-    public EChart Bar(Orient orient, DataFrame frame)
+    public EChart Bar(DataFrame<double> frame, bool stacked = false)
     {
-        frame.ApplyAxis(this, orient);
+        CheckAxis(frame);
+
+        var stack = stacked ? Guid.NewGuid().ToString() : null;
         Series =
         [
-            new SeriesBar
+            ..
+            Series ?? [],
+
+            ..
+            from values in frame.ColumnValues()
+            select new SeriesBar
             {
-                Data = new(frame.Data)
+                Stack = stack,
+                Data = new(values)
             }
         ];
         return this;
     }
 
-    public EChart Pie(DataFrame frame)
+    public EChart Pie(DataFrame<double> frame)
     {
+        CheckAxis(frame);
+
         Series =
         [
+            ..
+            Series ?? [],
+
             new SeriesPie
             {
                 Data = new(
                 [
                     ..
-                    from zip in frame.Categories.Zip(frame.Data)
+                    from zip in frame.Index.Zip(frame.ColumnValues(0))
                     select new DataElement
                     {
                         Name = zip.First.ToString(),
@@ -59,4 +128,5 @@ public class EChart
         ];
         return this;
     }
+
 }
