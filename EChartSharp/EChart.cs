@@ -48,16 +48,22 @@ public class EChart
         return this;
     }
 
-    private Axis GetClassAxis()
+    private Axis? GetClassAxis()
     {
         if (XAxis?.Type?.Value == AxisType.Category) return XAxis;
         if (YAxis?.Type?.Value == AxisType.Category) return YAxis;
-        throw new InvalidOperationException("Need to set the axis first.");
+        return null;
     }
 
     private void CheckAxis(DataFrame<double> frame)
     {
         var categoryAxis = GetClassAxis();
+        if (categoryAxis is null)
+        {
+            SetAxis(frame.Index);
+            categoryAxis = GetClassAxis()!;
+        }
+
         if (!Enumerable.SequenceEqual(categoryAxis.Data ?? [], frame.Index)) throw new InvalidOperationException("The values of index must be same.");
     }
 
